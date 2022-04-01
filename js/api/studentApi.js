@@ -21,6 +21,13 @@ const studentApi = {
     return axiosClient.patch(url, data)
   },
 
+  updateFormData(data) {
+    const url = `students/${data.id}`
+    return axiosClient.patch(url, data, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
+  },
+
   remove(id) {
     const url = `students/${id}`
     return axiosClient.remove(url)
